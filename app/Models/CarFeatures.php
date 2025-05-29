@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class FuelType extends Model
+class CarFeatures extends Model
 {
     //
     public $timestamps = false;
