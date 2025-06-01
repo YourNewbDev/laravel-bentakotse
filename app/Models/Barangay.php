@@ -9,4 +9,6 @@ class Barangay extends Model
     //
 
     public $timestamps = false;
+
+     protected $fillable = ['name', 'city_id', 'municipality_id'];
 }
