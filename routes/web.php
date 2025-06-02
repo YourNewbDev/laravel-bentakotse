@@ -11,6 +11,8 @@ Route::get('/', [HomeController::class, 'index'])
 ->name('home');
 
 Route::get('/car/search',[CarController::class, 'search'])->name('car.search');
+Route::get('/watchlist', [CarController::class, 'watchlist'])
+->name('car.watchlist');
 Route::resource('car', CarController::class);
 
 Route::get('/signup', [SignupController::class, 'create'])
@@ -18,6 +20,8 @@ Route::get('/signup', [SignupController::class, 'create'])
 
 Route::get('/login', [LoginController::class, 'login'])
 ->name('login');
+
+
 
 
 // Route::get('/about', function () {

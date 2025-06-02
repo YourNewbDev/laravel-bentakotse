@@ -205,7 +205,7 @@
                     </select>
                 </div>
                 <div>
-                    <select id="stateSelect" name="state_id">
+                    <select id="provinceSelect" name="province_id">
                         <option value="">State/Region</option>
                         <option value="4">California</option>
                         <option value="2">Kansas</option>

@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -11,7 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Car extends Model
 {
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'maker_id',
@@ -24,6 +26,7 @@ class Car extends Model
         'fuel_type_id',
         'user_id',
         'city_id',
+        'municipality_id',
         'address',
         'phone',
         'description',
@@ -47,7 +50,7 @@ class Car extends Model
 
     public function model(): BelongsTo
     {
-        return $this->belongsTo(Model::class);
+        return $this->belongsTo(CarModel::class);
     }
 
     public function owner(): BelongsTo
@@ -84,5 +87,10 @@ class Car extends Model
     public function favouredUsers(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'favourite_cars');
+    }
+
+    public function getCreateDate():string     
+    {
+        return (new Carbon($this->created_at))->format('Y-m-d');
     }
 }
