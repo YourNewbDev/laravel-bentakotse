@@ -21,7 +21,22 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## My Learning in Laravel with <a href="https://www.youtube.com/@TheCodeholic"> @TheCodeholic </a>
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+
+With <a href="https://www.youtube.com/@TheCodeholic"> @TheCodeholic </a>'s free uploaded tutorial I've learned
+
+- How to install Laravel x12
+- Found out about Laravel Herd
+- Routing
+- Controller
+- View
+- Blade Engine
+- Eloquent ORM
+- Factories
+- Seeding
+- Tips and Tricks in manipulating data
+- Pagination
+- Requests & Responses
 
