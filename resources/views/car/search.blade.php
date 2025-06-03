@@ -25,7 +25,7 @@
                 <div class="search-car-results-wrapper">
                     <div class="search-cars-sidebar">
                         <div class="card card-found-cars">
-                            <p class="m-0">Found <strong>{{$carCount}}</strong> cars</p>
+                            <p class="m-0">Found <strong>{{$cars->total()}}</strong> cars</p>
 
                             <button class="close-filters-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -152,6 +152,7 @@
                                 <x-cart-item :$car/>
                             @endforeach
                         </div>
+                        {{$cars->onEachSide(1)->links('pagination')}}
                         <nav class="pagination my-large">
                             <a href="#" class="pagination-item">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
