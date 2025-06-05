@@ -4,6 +4,7 @@ use App\Http\Controllers\CarController;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\SignupController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,12 +16,25 @@ Route::get('/watchlist', [CarController::class, 'watchlist'])
 ->name('car.watchlist');
 Route::resource('car', CarController::class);
 
-Route::get('/signup', [SignupController::class, 'create'])
-->name('signup');
-
-Route::get('/login', [LoginController::class, 'login'])
+Route::middleware('guest')->group(function() {
+    
+Route::get('/login', function (){
+    return view('auth.login');
+})
+->middleware('throttle:5,1')
 ->name('login');
 
+Route::post('login', LoginController::class)->name('login.attempt');
+
+Route::get('/signup', function() {
+    return view('auth.signup');
+})
+->name('signup');
+
+Route::post('signup', SignupController::class)->name('signup.attempt');
+});
+
+Route::post('logout', LogoutController::class)->name('logout');
 
 
 

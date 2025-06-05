@@ -11,8 +11,9 @@ class CarController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+
         $cars = User::find(1)
         ->cars()
         ->with('primaryImage', 'maker', 'model')
@@ -43,8 +44,9 @@ class CarController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Car $car)
+    public function show(Request $request,Car $car)
     {
+     
         return view('car.show', ['car' => $car]);
     }
 
@@ -85,7 +87,7 @@ class CarController extends Controller
 
         // $cars = $query->limit(30)->get();
 
-        $cars = $query->paginate(10);
+        $cars = $query->paginate(15);
 
 
         return view('car.search', ['cars' => $cars]);
